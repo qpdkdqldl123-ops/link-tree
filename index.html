@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전대 500 이루자</title>
+    <!-- 구글 눈누 폰트 (Pretendard) 제공처 링크 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+            --accent-color: #d4af37; /* 고급스러운 골드 포인트 */
+            --accent-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(17, 24, 39, 0.9) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 540px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* 헤더 스타일 (제목 수정 가능) */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .editable-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+            display: inline-block;
+            outline: none;
+        }
+
+        .editable-title:hover, .editable-title:focus {
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: var(--text-main);
+            box-shadow: 0 0 0 1px var(--card-border);
+        }
+
+        /* 링크 카드 스타일 */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: block;
+        }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .link-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            transition: color 0.3s;
+        }
+
+        .link-card:hover .link-title {
+            color: var(--accent-color);
+        }
+
+        .link-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            color: #ef4444;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s, background 0.2s;
+            z-index: 10;
+        }
+
+        .link-card:hover .delete-btn {
+            opacity: 1;
+        }
+
+        .delete-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        /* 추가 버튼 및 폼 */
+        .add-btn {
+            background: var(--accent-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 16px;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .add-btn:hover {
+            opacity: 0.9;
+            transform: scale(0.99);
+        }
+
+        .form-container {
+            background: #111827;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+            display: none;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 12px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .form-actions button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .submit-btn {
+            background: var(--accent-gradient);
+            color: #0b0f19;
+        }
+
+        .cancel-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <!-- 클릭 시 바로 수정 가능한 제목 영역 -->
+            <h1 class="editable-title" id="site-title" contenteditable="true" spellcheck="false">전대 500 이루자</h1>
+        </header>
+
+        <!-- 링크들이 배치되는 곳 -->
+        <div class="link-list" id="link-container"></div>
+
+        <!-- 추가하기 버튼 -->
+        <button class="add-btn" id="show-form-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            링크 추가하기
+        </button>
+
+        <!-- 입력 폼 -->
+        <div class="form-container" id="form-container">
+            <div class="form-group">
+                <label for="input-name">사이트 이름</label>
+                <input type="text" id="input-name" placeholder="예: 네이버">
+            </div>
+            <div class="form-group">
+                <label for="input-url">사이트 URL</label>
+                <input type="url" id="input-url" placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+                <label for="input-desc">설명</label>
+                <textarea id="input-desc" placeholder="사이트에 대한 간단한 설명을 적어주세요."></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="cancel-btn" id="cancel-btn">취소</button>
+                <button class="submit-btn" id="submit-btn">저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM 요소 가져오기
+        const siteTitle = document.getElementById('site-title');
+        const linkcontainer = document.getElementById('link-container');
+        const showFormBtn = document.getElementById('show-form-btn');
+        const formContainer = document.getElementById('form-container');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const submitBtn = document.getElementById('submit-btn');
+
+        const inputName = document.getElementById('input-name');
+        const inputUrl = document.getElementById('input-url');
+        const inputDesc = document.getElementById('input-desc');
+
+        // 로컬 스토리지 데이터 불러오기
+        let links = JSON.parse(localStorage.getItem('my-links')) || [];
+        let savedTitle = localStorage.getItem('my-site-title') || '전대 500 이루자';
+
+        // 초기 세팅
+        siteTitle.innerText = savedTitle;
+        renderLinks();
+
+        // 제목 수정 시 저장
+        siteTitle.addEventListener('blur', () => {
+            localStorage.setItem('my-site-title', siteTitle.innerText);
+        });
+        siteTitle.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') {
+                e.preventDefault();
+                siteTitle.blur();
+            }
+        });
+
+        // 폼 열고 닫기
+        showFormBtn.addEventListener('click', () => {
+            formContainer.style.display = 'flex';
+            showFormBtn.style.display = 'none';
+            inputName.focus();
+        });
+
+        cancelBtn.addEventListener('click', closeForm);
+
+        function closeForm() {
+            formContainer.style.display = 'none';
+            showFormBtn.style.display = 'flex';
+            inputName.value = '';
+            inputUrl.value = '';
+            inputDesc.value = '';
+        }
+
+        // 링크 저장하기
+        submitBtn.addEventListener('click', () => {
+            const name = inputName.value.trim();
+            let url = inputUrl.value.trim();
+            const desc = inputDesc.value.trim();
+
+            if (!name || !url) {
+                alert('사이트 이름과 URL은 필수 입력 항목입니다.');
+                return;
+            }
+
+            // http 프로토콜 자동 추가
+            if (!/^https?:\/\//i.test(url)) {
+                url = 'https://' + url;
+            }
+
+            const newLink = { id: Date.now(), name, url, desc };
+            links.push(newLink);
+            saveAndRender();
+            closeForm();
+        });
+
+        // 링크 삭제하기
+        function deleteLink(id, e) {
+            e.preventDefault(); // 카드 클릭 이동 방지
+            e.stopPropagation();
+            if(confirm('이 링크를 삭제하시겠습니까?')) {
+                links = links.filter(link => link.id !== id);
+                saveAndRender();
+            }
+        }
+
+        // 데이터 저장 및 렌더링
+        function saveAndRender() {
+            localStorage.setItem('my-links', JSON.stringify(links));
+            renderLinks();
+        }
+
+        function renderLinks() {
+            linkcontainer.innerHTML = '';
+            if (links.length === 0) {
+                linkcontainer.innerHTML = `<p style="text-align:center; color:var(--text-sub); padding:20px;">등록된 링크가 없습니다. 아래 버튼을 눌러 추가해보세요!</p>`;
+                return;
+            }
+
+            links.forEach(link => {
+                const card = document.createElement('a');
+                card.className = 'link-card';
+                card.href = link.url;
+                card.target = '_blank';
+                card.innerHTML = `
+                    <button class="delete-btn" onclick="deleteLink(${link.id}, event)">✕</button>
+                    <div class="link-title">${link.name}</div>
+                    <div class="link-desc">${link.desc || '설명이 없습니다.'}</div>
+                `;
+                linkcontainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -4,62 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>전대 500 이루자 💖</title>
-    <!-- 귀여운 폰트 (예: 잘난체) 적용을 위한 눈누 폰트 링크 -->
     <link href="https://webfontworld.github.id/yanolja/Jalnan.css" rel="stylesheet">
     <style>
         :root {
-            /* 밝고 귀여운 파스텔 톤 색상 팔레트 */
-            --bg-color: #fdfaf5; /* 따뜻하고 밝은 크림색 배경 */
-            --card-bg: #ffffff; /* 순백색 카드 배경 */
-            --card-border: #f1e4d1; /* 부드러운 베이지색 테두리 */
-            --text-main: #5d4037; /* 진한 브라운 메인 텍스트 */
-            --text-sub: #8d6e63; /* 연한 브라운 서브 텍스트 */
-            --accent-color: #ff8a80; /* 귀여운 코랄 핑크 포인트 */
-            --accent-gradient: linear-gradient(135deg, #ff8a80 0%, #ff5252 100%); /* 핑크 그라디언트 */
-            --hover-card-bg: #fff3e0; /* 호버 시 연한 오렌지색 배경 */
+            --bg-color: #fdfaf5;
+            --card-bg: #ffffff;
+            --card-border: #f1e4d1;
+            --text-main: #5d4037;
+            --text-sub: #8d6e63;
+            --accent-color: #ff8a80;
+            --accent-gradient: linear-gradient(135deg, #ff8a80 0%, #ff5252 100%);
+            --hover-card-bg: #fff3e0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* 귀여운 느낌의 '잘난체' 폰트 우선 적용 */
             font-family: 'Jalnan', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            /* 배경에 귀여운 패턴 추가 (선택 사항) */
-            background-image: 
-                radial-gradient(var(--card-border) 1px, transparent 1px);
+            background-image: radial-gradient(var(--card-border) 1px, transparent 1px);
             background-size: 20px 20px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px; /* 위아래 패딩 약간 축소 */
+            padding: 40px 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 500px; /* 최대 너비 약간 축소 */
+            max-width: 500px;
             display: flex;
             flex-direction: column;
-            gap: 20px; /* 요소 간 간격 축소 */
+            gap: 20px;
         }
 
-        /* 헤더 스타일 */
         header {
             text-align: center;
             margin-bottom: 10px;
         }
 
         .editable-title {
-            font-size: 2.5rem; /* 글자 크기 키움 */
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--accent-color); /* 코랄 핑크 메인 컬러 */
-            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 4px 4px 0px rgba(93, 64, 55, 0.1); /* 귀여운 입체 효과 */
+            color: var(--accent-color);
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 4px 4px 0px rgba(93, 64, 55, 0.1);
             cursor: pointer;
             padding: 5px 15px;
             border-radius: 12px;
@@ -69,34 +63,33 @@
         }
 
         .editable-title:hover, .editable-title:focus {
-            background: rgba(255, 138, 128, 0.1); /* 연한 핑크 배경 */
-            box-shadow: 0 0 0 2px rgba(255, 138, 128, 0.3); /* 연한 핑크 테두리 */
+            background: rgba(255, 138, 128, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 138, 128, 0.3);
         }
 
-        /* 링크 카드 스타일 */
         .link-list {
             display: flex;
             flex-direction: column;
-            gap: 14px; /* 카드 간 간격 축소 */
+            gap: 14px;
         }
 
         .link-card {
             background: var(--card-bg);
-            border: 2px solid var(--card-border); /* 테두리 두껍게 */
-            border-radius: 20px; /* 둥글게 */
-            padding: 18px; /* 패딩 축소 */
+            border: 2px solid var(--card-border);
+            border-radius: 20px;
+            padding: 18px;
             position: relative;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 톡톡 튀는 애니메이션 */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             display: block;
-            box-shadow: 0 4px 0px var(--card-border); /* 귀여운 그림자 효과 */
+            box-shadow: 0 4px 0px var(--card-border);
         }
 
         .link-card:hover {
-            transform: translateY(-5px) scale(1.02); /* 위로 톡! 커짐 */
+            transform: translateY(-5px) scale(1.02);
             border-color: var(--accent-color);
-            background-color: var(--hover-card-bg); /* 호버 배경색 변경 */
-            box-shadow: 0 8px 0px rgba(255, 138, 128, 0.3); /* 호버 그림자 변경 */
+            background-color: var(--hover-card-bg);
+            box-shadow: 0 8px 0px rgba(255, 138, 128, 0.3);
         }
 
         .link-title {
@@ -110,12 +103,6 @@
             gap: 6px;
         }
 
-        /* 제목 앞에 귀여운 이모지 추가 (JavaScript에서 처리) */
-        .link-title::before {
-            content: '⭐'; /* 기본 이모지 */
-            font-size: 1rem;
-        }
-
         .link-card:hover .link-title {
             color: var(--accent-color);
         }
@@ -124,45 +111,50 @@
             font-size: 0.9rem;
             color: var(--text-sub);
             line-height: 1.4;
-            font-family: 'Pretendard', sans-serif; /* 본문은 가독성 좋은 Pretendard */
+            font-family: 'Pretendard', sans-serif;
+            padding-right: 50px;
         }
 
-        .delete-btn {
+        /* 관리 버튼 스타일 (수정/삭제) */
+        .action-buttons {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(255, 138, 128, 0.1);
+            display: flex;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+        }
+
+        .link-card:hover .action-buttons {
+            opacity: 1;
+        }
+
+        .action-btn {
             border: none;
-            color: var(--accent-color);
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            opacity: 0;
+            font-size: 0.85rem;
             transition: all 0.2s ease;
-            z-index: 10;
         }
 
-        .link-card:hover .delete-btn {
-            opacity: 1;
-        }
-
-        .delete-btn:hover {
-            background: var(--accent-color);
-            color: white;
-            transform: scale(1.1);
-        }
+        .edit-btn { background: rgba(93, 64, 55, 0.1); color: var(--text-main); }
+        .edit-btn:hover { background: var(--text-main); color: white; transform: scale(1.1); }
+        .delete-btn { background: rgba(255, 138, 128, 0.1); color: var(--accent-color); }
+        .delete-btn:hover { background: var(--accent-color); color: white; transform: scale(1.1); }
 
         /* 추가 버튼 및 폼 */
         .add-btn {
             background: var(--accent-gradient);
             color: white;
             border: none;
-            border-radius: 20px; /* 둥글게 */
+            border-radius: 20px;
             padding: 14px;
             font-size: 1.1rem;
             font-weight: 700;
@@ -172,30 +164,22 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 0px rgba(255, 82, 82, 0.3); /* 버튼 그림자 */
+            box-shadow: 0 4px 0px rgba(255, 82, 82, 0.3);
             margin-top: 10px;
         }
 
-        .add-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0px rgba(255, 82, 82, 0.3);
-        }
-
-        .add-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px rgba(255, 82, 82, 0.3);
-        }
+        .add-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0px rgba(255, 82, 82, 0.3); }
 
         .form-container {
             background: var(--card-bg);
-            border: 2px solid var(--accent-color); /* 코랄 핑크 테두리 */
+            border: 2px solid var(--accent-color);
             border-radius: 24px;
             padding: 20px;
             display: none;
             flex-direction: column;
             gap: 12px;
             box-shadow: 0 10px 20px rgba(255, 138, 128, 0.2);
-            animation: popIn 0.3s ease-out; /* 등장 애니메이션 */
+            animation: popIn 0.3s ease-out;
         }
 
         @keyframes popIn {
@@ -203,91 +187,39 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .form-group label {
-            font-size: 0.9rem;
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.9rem; color: var(--text-main); font-weight: 700; }
         .form-group input, .form-group textarea {
-            background: #fff;
-            border: 2px solid var(--card-border);
-            border-radius: 12px;
-            padding: 10px;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.2s;
-            font-family: 'Pretendard', sans-serif;
+            background: #fff; border: 2px solid var(--card-border); border-radius: 12px;
+            padding: 10px; color: var(--text-main); font-size: 0.95rem; outline: none;
+            transition: all 0.2s; font-family: 'Pretendard', sans-serif;
         }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(255, 138, 128, 0.2);
-        }
-
-        .form-group textarea {
-            resize: none;
-            height: 70px;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .form-actions button {
-            flex: 1;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
-        }
-
-        .submit-btn {
-            background: var(--accent-gradient);
-            color: white;
-            box-shadow: 0 3px 0px rgba(255, 82, 82, 0.3);
-        }
-        .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 0px rgba(255, 82, 82, 0.3); }
-
-        .cancel-btn {
-            background: #eee;
-            color: #555;
-            box-shadow: 0 3px 0px rgba(0, 0, 0, 0.1);
-        }
-        .cancel-btn:hover { background: #ddd; transform: translateY(-1px); box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1); }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(255, 138, 128, 0.2); }
+        .form-group textarea { resize: none; height: 70px; }
+        .form-actions { display: flex; gap: 8px; margin-top: 8px; }
+        .form-actions button { flex: 1; padding: 10px; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; }
+        .submit-btn { background: var(--accent-gradient); color: white; box-shadow: 0 3px 0px rgba(255, 82, 82, 0.3); }
+        .cancel-btn { background: #eee; color: #555; box-shadow: 0 3px 0px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <!-- 클릭 시 바로 수정 가능한 제목 영역 -->
-            <h1 class="editable-title" id="site-title" contenteditable="true" spellcheck="false">전대 500 이루자 💖</h1>
+            <h1 class="editable-title" id="site-title" contenteditable="true" spellcheck="false">로딩 중... ⏳</h1>
         </header>
 
-        <!-- 링크들이 배치되는 곳 -->
-        <div class="link-list" id="link-container"></div>
+        <div class="link-list" id="link-container">링크를 불러오는 중입니다... 🎈</div>
 
-        <!-- 추가하기 버튼 -->
         <button class="add-btn" id="show-form-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             새로운 링크 쏙!
         </button>
 
-        <!-- 입력 폼 -->
         <div class="form-container" id="form-container">
+            <h3 id="form-title" style="font-size: 1.1rem; margin-bottom: 5px; color: var(--accent-color);">✨ 링크 추가하기</h3>
+            <input type="hidden" id="edit-id">
+            
             <div class="form-group">
                 <label for="input-name">🌈 사이트 이름</label>
                 <input type="text" id="input-name" placeholder="예: 네이버">
@@ -301,49 +233,83 @@
                 <textarea id="input-desc" placeholder="어떤 사이트인지 알려주세요!"></textarea>
             </div>
             <div class="form-actions">
-                <button class="cancel-btn" id="cancel-btn">다음에 할래요</button>
-                <button class="submit-btn" id="submit-btn">링크 저장 꾹!</button>
+                <button class="cancel-btn" id="cancel-btn">취소</button>
+                <button class="submit-btn" id="submit-btn">저장 꾹!</button>
             </div>
         </div>
     </div>
 
-    <script>
-        // DOM 요소 가져오기
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { 
+            getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query, orderBy, setDoc
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // 보내주신 Firebase 설정값 적용 완료! 🎯
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuzz4G4wmIvJIVeqi1pY_TSU5NzUGBtwE",
+            authDomain: "link-tree-1e347.firebaseapp.com",
+            projectId: "link-tree-1e347",
+            storageBucket: "link-tree-1e347.firebasestorage.app",
+            messagingSenderId: "1021022350065",
+            appId: "1:1021022350065:web:8edbf72dc40fe784789750",
+            measurementId: "G-1S888SX0HL"
+        };
+
+        // Firebase 및 데이터베이스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        const linksCollection = collection(db, "links");
+        const configCollection = collection(db, "config");
+
+        // DOM 요소
         const siteTitle = document.getElementById('site-title');
         const linkcontainer = document.getElementById('link-container');
         const showFormBtn = document.getElementById('show-form-btn');
         const formContainer = document.getElementById('form-container');
+        const formTitle = document.getElementById('form-title');
         const cancelBtn = document.getElementById('cancel-btn');
         const submitBtn = document.getElementById('submit-btn');
-
+        const editId = document.getElementById('edit-id');
         const inputName = document.getElementById('input-name');
         const inputUrl = document.getElementById('input-url');
         const inputDesc = document.getElementById('input-desc');
 
-        // 귀여운 이모지 배열
         const emojis = ['⭐', '✨', '💖', '🍭', '🌈', '🎀', '🐶', '🐱', '🐣', '🌸'];
+        let links = [];
 
-        // 로컬 스토리지 데이터 불러오기
-        let links = JSON.parse(localStorage.getItem('my-links-cute')) || [];
-        let savedTitle = localStorage.getItem('my-site-title-cute') || '전대 500 이루자 💖';
-
-        // 초기 세팅
-        siteTitle.innerText = savedTitle;
-        renderLinks();
-
-        // 제목 수정 시 저장
-        siteTitle.addEventListener('blur', () => {
-            localStorage.setItem('my-site-title-cute', siteTitle.innerText);
-        });
-        siteTitle.addEventListener('keydown', (e) => {
-            if(e.key === 'Enter') {
-                e.preventDefault();
-                siteTitle.blur();
+        // 1. 대문 제목 실시간 감지 및 동기화
+        onSnapshot(doc(db, "config", "siteTitle"), (docSnap) => {
+            if (docSnap.exists()) {
+                siteTitle.innerText = docSnap.data().title;
+            } else {
+                siteTitle.innerText = "전대 500 이루자 💖";
             }
         });
 
-        // 폼 열고 닫기
+        // 타이틀 편집 시 DB에 실시간 저장
+        siteTitle.addEventListener('blur', async () => {
+            await setDoc(doc(db, "config", "siteTitle"), { title: siteTitle.innerText });
+        });
+        siteTitle.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') { e.preventDefault(); siteTitle.blur(); }
+        });
+
+        // 2. 링크 리스트 실시간 동기화 (onSnapshot)
+        const q = query(linksCollection, orderBy("createdAt", "asc"));
+        onSnapshot(q, (snapshot) => {
+            links = [];
+            snapshot.forEach((doc) => {
+                links.push({ id: doc.id, ...doc.data() });
+            });
+            renderLinks();
+        });
+
+        // 폼 제어 관련 함수들
         showFormBtn.addEventListener('click', () => {
+            formTitle.innerText = '✨ 링크 추가하기';
+            editId.value = '';
             formContainer.style.display = 'flex';
             showFormBtn.style.display = 'none';
             inputName.focus();
@@ -354,52 +320,78 @@
         function closeForm() {
             formContainer.style.display = 'none';
             showFormBtn.style.display = 'flex';
+            editId.value = '';
             inputName.value = '';
             inputUrl.value = '';
             inputDesc.value = '';
         }
 
-        // 링크 저장하기
-        submitBtn.addEventListener('click', () => {
+        // 링크 추가 및 수정 처리
+        submitBtn.addEventListener('click', async () => {
             const name = inputName.value.trim();
             let url = inputUrl.value.trim();
             const desc = inputDesc.value.trim();
+            const idToEdit = editId.value;
 
             if (!name || !url) {
                 alert('앗! 사이트 이름과 주소는 꼭 넣어주셔야 해요! 😥');
                 return;
             }
-
-            // http 프로토콜 자동 추가
             if (!/^https?:\/\//i.test(url)) {
                 url = 'https://' + url;
             }
 
-            // 랜덤 이모지 선택
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-
-            const newLink = { id: Date.now(), name, url, desc, emoji: randomEmoji };
-            links.push(newLink);
-            saveAndRender();
-            closeForm();
+            try {
+                if (idToEdit) {
+                    // [수정] Firestore 문서 업데이트
+                    const docRef = doc(db, "links", idToEdit);
+                    await updateDoc(docRef, { name, url, desc });
+                } else {
+                    // [추가] Firestore 새 링크 추가
+                    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    await addDoc(linksCollection, {
+                        name, url, desc,
+                        emoji: randomEmoji,
+                        createdAt: Date.now()
+                    });
+                }
+                closeForm();
+            } catch (error) {
+                console.error("데이터 저장 실패:", error);
+                alert("앗, 저장에 실패했어요. Firestore 규칙(Rules)이 테스트 모드로 열려있는지 확인해보세요!");
+            }
         });
 
-        // 링크 삭제하기
-        function deleteLink(id, e) {
-            e.preventDefault(); // 카드 클릭 이동 방지
-            e.stopPropagation();
+        // 수정 시작 (버튼 액션 연결용 전역 설정)
+        window.startEdit = function(id, e) {
+            e.preventDefault(); e.stopPropagation();
+            const target = links.find(l => l.id === id);
+            if (!target) return;
+
+            formTitle.innerText = '✏️ 링크 수정하기';
+            editId.value = target.id;
+            inputName.value = target.name;
+            inputUrl.value = target.url;
+            inputDesc.value = target.desc || '';
+
+            formContainer.style.display = 'flex';
+            showFormBtn.style.display = 'none';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        };
+
+        // 링크 삭제
+        window.deleteLink = async function(id, e) {
+            e.preventDefault(); e.stopPropagation();
             if(confirm('이 링크를 정말 지울까요? 😥')) {
-                links = links.filter(link => link.id !== id);
-                saveAndRender();
+                try {
+                    await deleteDoc(doc(db, "links", id));
+                } catch (error) {
+                    alert("삭제 오류가 발생했습니다.");
+                }
             }
-        }
+        };
 
-        // 데이터 저장 및 렌더링
-        function saveAndRender() {
-            localStorage.setItem('my-links-cute', JSON.stringify(links));
-            renderLinks();
-        }
-
+        // 화면 렌더링
         function renderLinks() {
             linkcontainer.innerHTML = '';
             if (links.length === 0) {
@@ -413,15 +405,16 @@
                 card.href = link.url;
                 card.target = '_blank';
                 card.innerHTML = `
-                    <button class="delete-btn" onclick="deleteLink(${link.id}, event)">✕</button>
+                    <div class="action-buttons">
+                        <button class="action-btn edit-btn" onclick="startEdit('${link.id}', event)">✏️</button>
+                        <button class="action-btn delete-btn" onclick="deleteLink('${link.id}', event)">✕</button>
+                    </div>
                     <div class="link-title" style="--emoji: '${link.emoji || '⭐'}';">${link.name}</div>
                     <div class="link-desc">${link.desc || '별다른 설명이 없어요. 😶'}</div>
                 `;
                 
-                // CSS variable을 이용해 ::before content 동적 변경
                 const titleEl = card.querySelector('.link-title');
                 titleEl.style.setProperty('--emoji', `'${link.emoji || '⭐'}'`);
-                // 기본 세팅된 ::before의 content를 CSS variable로 교체
                 const style = document.createElement('style');
                 style.innerHTML = `.link-title::before { content: var(--emoji); }`;
                 card.appendChild(style);
